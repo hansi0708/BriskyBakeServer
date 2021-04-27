@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BriskyBakeServer</string>
+    <string name="log_in">Log In</string>
+    <string name="not_registered_sign_up_here"><u>Not registered? Sign up here</u></string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="password">Password</string>
+    <string name="name">Name</string>
+    <string name="applogo">Brisky Bake</string>
+    <string name="forgot_password">Forgot Password</string>
+</resources>
