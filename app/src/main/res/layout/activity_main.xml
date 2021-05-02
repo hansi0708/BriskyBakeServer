@@ -1,18 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SignIn"
+    android:background="@color/buttoncolor"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center"
+        android:layout_marginTop="80dp"
+        android:gravity="center"
+        android:backgroundTint="@color/backgroundcolor"
+        android:background="@drawable/outline"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/appiconsignin"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:src="@drawable/bblogo"
+            android:contentDescription="@string/applogo" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+            <EditText
+                android:id="@+id/TextEmailsignin"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="10dp"
+                android:drawableStart="@drawable/tbicon_email"
+                android:drawableLeft="@drawable/tbicon_email"
+                android:ems="10"
+                android:paddingTop="10dp"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:textSize="15sp"
+                tools:ignore="Autofill,RtlSymmetry"
+                android:paddingStart="10dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            app:passwordToggleEnabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <EditText
+                android:id="@+id/TextPasswordsignin"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/tbiconpassword"
+                android:drawableLeft="@drawable/tbiconpassword"
+                android:ems="10"
+                android:paddingTop="10dp"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:textSize="15sp"
+                tools:ignore="Autofill" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <Button
+            android:id="@+id/directtofrgpass"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forgot_password"
+            android:textAllCaps="false"
+            android:layout_gravity="end"
+            android:layout_marginRight="12dp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            app:backgroundTint="@color/backgroundcolor"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            />
+
+        <Button
+            android:id="@+id/btnsignin"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:textAllCaps="false"
+            android:background="@drawable/btncorners"
+            android:text="@string/log_in"
+            app:backgroundTint="@color/buttoncolor" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -108,19 +108,6 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/directtosignup"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/not_registered_sign_up_here"
-        android:textAllCaps="false"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        app:backgroundTint="@color/backgroundcolor"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        />
+
 
 </LinearLayout>
