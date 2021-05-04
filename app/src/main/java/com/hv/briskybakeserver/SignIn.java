@@ -41,7 +41,7 @@ public class SignIn extends AppCompatActivity {
 
         //Init Firebase
         db = FirebaseDatabase.getInstance();
-        users = db.getReference("User");
+        users = db.getReference("Staff");
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,15 +66,12 @@ public class SignIn extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 if (snapshot.child(localEmail).exists())
-
-
                 {
                     Log.d("TAG", "onDataChange: "+snapshot.child(localEmail).exists());
                     mDialog.dismiss();
                     User user = snapshot.child(localEmail).getValue(User.class);
                     user.setEmail(localEmail);
-                    if (Boolean.parseBoolean(user.getIsStaff()))// IsStaff == true
-                    {
+
                         if (user.getPassword().equals(localPassword))
                         {
                             Intent Login = new Intent(SignIn.this,Home.class);
@@ -84,9 +81,6 @@ public class SignIn extends AppCompatActivity {
                         }
                         else
                             Log.d("TAG", "Wrong Password");
-                    }
-                    else
-                        Log.d("TAG", "Please login with Staff Account");
                 }
                 else
                 {

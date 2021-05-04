@@ -48,7 +48,7 @@
                 android:ems="10"
                 android:paddingTop="10dp"
                 android:hint="@string/email"
-                android:inputType="textEmailAddress"
+                android:inputType="phone"
                 android:textSize="15sp"
                 tools:ignore="Autofill,RtlSymmetry"
                 android:paddingStart="10dp" />

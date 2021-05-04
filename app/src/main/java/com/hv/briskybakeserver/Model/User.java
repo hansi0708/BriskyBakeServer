@@ -35,14 +35,6 @@ public class User {
         Phone = phone;
     }
 
-    public String getIsStaff() {
-        return IsStaff;
-    }
-
-    public void setIsStaff(String isStaff) {
-        IsStaff = isStaff;
-    }
-
     public String getEmail() {
         return Email;
     }
