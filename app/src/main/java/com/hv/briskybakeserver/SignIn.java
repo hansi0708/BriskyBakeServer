@@ -77,7 +77,7 @@ public class SignIn extends AppCompatActivity {
                             Intent Login = new Intent(SignIn.this,Home.class);
                             Common.currentUser = user;
                             startActivity(Login);
-//                            finish();
+                            finish();
                         }
                         else
                             Log.d("TAG", "Wrong Password");
