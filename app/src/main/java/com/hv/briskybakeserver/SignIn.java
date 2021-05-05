@@ -24,7 +24,7 @@ import java.time.LocalDate;
 
 public class SignIn extends AppCompatActivity {
 
-    EditText temail,tpassword;
+    EditText tphone,tpassword;
     Button btnSignIn;
 
     FirebaseDatabase db;
@@ -35,7 +35,7 @@ public class SignIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        temail=findViewById(R.id.TextEmailsignin);
+        tphone=findViewById(R.id.TextPhonesignin);
         tpassword=findViewById(R.id.TextPasswordsignin);
         btnSignIn=findViewById(R.id.btnsignin);
 
@@ -46,31 +46,31 @@ public class SignIn extends AppCompatActivity {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signInUser(temail.getText().toString(),tpassword.getText().toString());
+                signInUser(tphone.getText().toString(),tpassword.getText().toString());
 
             }
         });
     }
 
-    private void signInUser(String email, String password) {
+    private void signInUser(String phone, String password) {
 
         ProgressDialog mDialog = new ProgressDialog(SignIn.this);
         mDialog.setMessage("Please wait...");
         mDialog.show();
 
-        final String localEmail = email;
+        final String localPhone = phone;
         final String localPassword = password;
 
         users.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                if (snapshot.child(localEmail).exists())
+                if (snapshot.child(localPhone).exists())
                 {
-                    Log.d("TAG", "onDataChange: "+snapshot.child(localEmail).exists());
+                    Log.d("TAG", "onDataChange: "+snapshot.child(localPhone).exists());
                     mDialog.dismiss();
-                    User user = snapshot.child(localEmail).getValue(User.class);
-                    user.setEmail(localEmail);
+                    User user = snapshot.child(localPhone).getValue(User.class);
+                    user.setEmail(localPhone);
 
                         if (user.getPassword().equals(localPassword))
                         {

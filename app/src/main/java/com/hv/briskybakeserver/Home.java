@@ -28,9 +28,11 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Menu management");
         setSupportActionBar(toolbar);
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +41,7 @@ public class Home extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -52,7 +55,7 @@ public class Home extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
         //set name for user
         View headerView = navigationView.getHeaderView(0);
-        txtFullName = (TextView)headerView.findViewById(R.id.textFullName);
+        txtFullName = headerView.findViewById(R.id.textFullName);
         txtFullName.setText(Common.currentUser.getName());
 
     }

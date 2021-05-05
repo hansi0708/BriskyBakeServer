@@ -33,25 +33,24 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             >
-            <EditText
-                android:id="@+id/TextEmailsignin"
-                android:layout_width="330dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:paddingLeft="10dp"
-                android:drawableStart="@drawable/tbicon_email"
-                android:drawableLeft="@drawable/tbicon_email"
-                android:ems="10"
-                android:paddingTop="10dp"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress"
-                android:textSize="15sp"
-                tools:ignore="Autofill,RtlSymmetry"
-                android:paddingStart="10dp" />
+
+        <EditText
+            android:id="@+id/TextPhonesignin"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/tbicon_phone"
+            android:drawableLeft="@drawable/tbicon_phone"
+            android:ems="10"
+            android:hint="@string/phone"
+            android:inputType="phone"
+            android:paddingLeft="5dp"
+            android:textSize="15sp"
+            tools:ignore="Autofill,RtlSymmetry"
+            android:paddingStart="5dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -71,11 +70,12 @@
                 android:drawableStart="@drawable/tbiconpassword"
                 android:drawableLeft="@drawable/tbiconpassword"
                 android:ems="10"
-                android:paddingTop="10dp"
                 android:hint="@string/password"
                 android:inputType="textPassword"
+                android:paddingLeft="5dp"
+                android:paddingStart="5dp"
                 android:textSize="15sp"
-                tools:ignore="Autofill" />
+                tools:ignore="Autofill,RtlSymmetry" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
