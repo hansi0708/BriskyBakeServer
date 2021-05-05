@@ -27,7 +27,7 @@
             android:background="@color/backgroundcolor"
             android:fontFamily="popins"
             android:gravity="center"
-            android:text="name_of_menu"
+            android:text="Menu Name"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
