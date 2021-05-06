@@ -6,12 +6,14 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
+
     defaultConfig {
         applicationId "com.hv.briskybakeserver"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -44,6 +46,7 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:27.1.0')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.android.support:multidex:1.0.3'
 
     implementation 'com.google.firebase:firebase-core:18.0.3'
     implementation 'com.google.firebase:firebase-database:19.7.0'
