@@ -111,6 +111,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         navigationView.setNavigationItemSelectedListener(this);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
+
         //set name for user
         View headerView = navigationView.getHeaderView(0);
         txtFullName = headerView.findViewById(R.id.textFullName);
@@ -230,7 +231,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST && requestCode == RESULT_OK && data != null && data.getData() != null)
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK &&
+                data != null && data.getData() != null)
         {
             saveUri = data.getData();
             btnSelect.setText("Image Selected");
@@ -271,16 +273,16 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                     }
                 });
                   final Category clickItem=model;
-         //       holder.setItemClickListener(new ItemClickListener() {
-        //            @Override
-           //         public void onClick(View view, int position, boolean isLongClick) {
+                holder.setItemClickListener(new ItemClickListener() {
+                    @Override
+                    public void onClick(View view, int position, boolean isLongClick) {
                         //Get CategoryId and send to New Activity
            //             Intent list=new Intent(Home.this, FoodList.class);
       //                  //Because CategoryId is Key, so we take key of the item
       //                  list.putExtra("CategoryId",adapter.getRef(position).getKey());
       //                  startActivity(list);
-            //        }
-   //             });
+                    }
+                });
             }
 
             @NonNull
@@ -352,7 +354,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         btnSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chooseImage();//let user select Image from gallery and save Url of the image
+                chooseImage();  //let user select Image from gallery and save Url of the image
             }
         });
 
@@ -389,6 +391,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         });
         alertDialog.show();
     }
+
     private void changeImage(Category item) {
         if (saveUri != null)
         {
@@ -397,12 +400,12 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             mDialog.show();
 
             String imageName = UUID.randomUUID().toString();
-            StorageReference imageFolder = storageReference.child("image/*"+imageName);
+            StorageReference imageFolder = storageReference.child("image/"+imageName);
             imageFolder.putFile(saveUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     mDialog.dismiss();
-                    Toast.makeText(Home.this, "Uploaded !", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Home.this, "Uploaded!!", Toast.LENGTH_SHORT).show();
                     imageFolder.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
@@ -431,4 +434,5 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         }
     }
+
 }

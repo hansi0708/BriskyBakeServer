@@ -34,7 +34,7 @@
         app:tint="@color/white"
         android:visibility="visible"
         app:backgroundTintMode="add"
-        app:srcCompat="@drawable/cartion"
+        app:srcCompat="@drawable/carticon"
         tools:ignore="UnusedAttribute,VectorDrawableCompat" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
