@@ -1,5 +1,6 @@
 package com.hv.briskybakeserver;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -162,11 +163,12 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
                 dialog.dismiss();
 
-                //new Caregory
+                //new Category
                 if (newCategory != null)
                 {
                     category.push().setValue(newCategory);
-                    Snackbar.make(drawer,"New category"+newCategory.getName()+"was added",Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(drawer,"New category"+newCategory.getName()+"was added",Snackbar.LENGTH_SHORT)
+                            .show();
 
                 }
 
@@ -192,12 +194,13 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             mDialog.show();
 
             String imageName = UUID.randomUUID().toString();
-            StorageReference imageFolder = storageReference.child("image/*"+imageName);
-            imageFolder.putFile(saveUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            final StorageReference imageFolder = storageReference.child("image/"+imageName);
+            imageFolder.putFile(saveUri)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     mDialog.dismiss();
-                    Toast.makeText(Home.this, "Uploaded !", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Home.this, "Uploaded!!", Toast.LENGTH_SHORT).show();
                     imageFolder.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
@@ -218,7 +221,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
              .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                  @Override
                  public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-                     double progress = (100.0 *snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
+                     double progress = (100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
                      mDialog.setMessage("Uploaded "+progress+"%");
 
                  }
@@ -227,10 +230,12 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         }
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST && requestCode == RESULT_OK && data != null && data.getData() != null)
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+                && data != null && data.getData() != null)
         {
             saveUri = data.getData();
             btnSelect.setText("Image Selected");
@@ -306,5 +311,16 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         DrawerLayout drawer=findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer=findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        }
+        else {
+            super.onBackPressed();
+        }
     }
 }
