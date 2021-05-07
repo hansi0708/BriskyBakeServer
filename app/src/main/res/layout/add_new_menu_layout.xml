@@ -15,7 +15,7 @@
 
         <EditText
             android:id="@+id/TextName"
-            android:layout_width="330dp"
+            android:layout_width="296dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
