@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="20dp">
+
+        <EditText
+            android:id="@+id/TextName"
+            android:layout_width="296dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Name"
+            android:layout_marginLeft="10dp"
+            android:inputType="textPersonName"
+            android:paddingLeft="5dp"
+            android:textSize="15sp"
+            tools:ignore="Autofill,RtlSymmetry"
+            android:paddingStart="5dp" />
+        <EditText
+            android:id="@+id/Price"
+            android:layout_width="296dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Price"
+            android:layout_marginLeft="10dp"
+            android:inputType="textPersonName"
+            android:paddingLeft="5dp"
+            android:textSize="15sp"
+            tools:ignore="Autofill,RtlSymmetry"
+            android:paddingStart="5dp" />
+
+
+        <EditText
+            android:id="@+id/Discount"
+            android:layout_width="296dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Discount"
+            android:layout_marginLeft="10dp"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="15sp"
+            tools:ignore="Autofill,RtlSymmetry"
+            android:paddingStart="5dp" />
+
+        <LinearLayout
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnSelect"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:textAllCaps="false"
+                android:background="@drawable/btncorners"
+                android:text="SELECT"
+                app:backgroundTint="@color/buttoncolor" />
+
+            <Button
+                android:id="@+id/btnUpload"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:textAllCaps="false"
+                android:background="@drawable/btncorners"
+                android:text="UPLOAD"
+                app:backgroundTint="@color/buttoncolor" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
