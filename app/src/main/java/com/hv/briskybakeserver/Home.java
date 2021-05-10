@@ -381,6 +381,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
             }
         });
+
         alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -392,7 +393,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         alertDialog.show();
     }
 
-    private void changeImage(Category item) {
+    private void changeImage(final Category item) {
         if (saveUri != null)
         {
             ProgressDialog mDialog = new ProgressDialog(this);
