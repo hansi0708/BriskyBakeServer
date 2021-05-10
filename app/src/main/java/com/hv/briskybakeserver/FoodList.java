@@ -101,8 +101,8 @@ public class FoodList extends AppCompatActivity {
 
     private void showAddFoodDialog() {
         AlertDialog.Builder alertDialog=new AlertDialog.Builder(FoodList.this);
-        alertDialog.setTitle("Add new Food");
-        alertDialog.setMessage("Please fill full information");
+        alertDialog.setTitle("Add Food Item");
+        alertDialog.setMessage("Enter details :");
 
         LayoutInflater inflater=this.getLayoutInflater();
         View add_menu_layout=inflater.inflate(R.layout.add_new_food_layout,null);
@@ -143,7 +143,7 @@ public class FoodList extends AppCompatActivity {
                 if (newFood != null)
                 {
                     foodList.push().setValue(newFood);
-                    Snackbar.make(rootLayout,"New category "+newFood.getName()+" was added",Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(rootLayout,newFood.getName()+" was added",Snackbar.LENGTH_SHORT).show();
 
                 }
 
@@ -200,7 +200,7 @@ public class FoodList extends AppCompatActivity {
                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-                            double progress = (100.0 *snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
+                            int progress = (int) (100.0 *snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
                             mDialog.setMessage("Uploaded "+progress+"%");
 
                         }
@@ -295,14 +295,14 @@ public class FoodList extends AppCompatActivity {
 
     private void showUpdateFoodDialog(String key, Food item) {
         AlertDialog.Builder alertDialog=new AlertDialog.Builder(FoodList.this);
-        alertDialog.setTitle("Edit Food");
-        alertDialog.setMessage("Please fill full information");
+        alertDialog.setTitle("Edit Food Item");
+        alertDialog.setMessage("Enter details :");
 
         LayoutInflater inflater=this.getLayoutInflater();
         View add_menu_layout=inflater.inflate(R.layout.add_new_food_layout,null);
 
         edtName = add_menu_layout.findViewById(R.id.TextName);
-        edtDescription = add_menu_layout.findViewById(R.id.Discription);
+        edtDescription = add_menu_layout.findViewById(R.id.Description);
         edtPrice = add_menu_layout.findViewById(R.id.Price);
         edtDiscount = add_menu_layout.findViewById(R.id.Discount);
 
@@ -334,7 +334,7 @@ public class FoodList extends AppCompatActivity {
         alertDialog.setIcon(R.drawable.ic_baseline_shopping_cart_24);
 
         //set Button
-        alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        alertDialog.setPositiveButton("Update", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -346,11 +346,11 @@ public class FoodList extends AppCompatActivity {
                     item.setDescription(edtDescription.getText().toString());
 
                     foodList.child(key).setValue(item);
-                    Snackbar.make(rootLayout,"New category "+item.getName()+" was added",Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(rootLayout,item.getName()+" was updated",Snackbar.LENGTH_SHORT).show();
 
             }
         });
-        alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -395,7 +395,7 @@ public class FoodList extends AppCompatActivity {
                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-                            double progress = (100.0 *snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
+                            int progress = (int) (100.0 *snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
                             mDialog.setMessage("Uploaded "+progress+"%");
 
                         }

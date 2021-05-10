@@ -129,7 +129,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     private void showDialog() {
         AlertDialog.Builder alertDialog=new AlertDialog.Builder(Home.this);
         alertDialog.setTitle("Add new Category");
-        alertDialog.setMessage("Please fill full information");
+        alertDialog.setMessage("Enter details :");
 
         LayoutInflater inflater=this.getLayoutInflater();
         View add_menu_layout=inflater.inflate(R.layout.add_new_menu_layout,null);
@@ -157,7 +157,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         alertDialog.setIcon(R.drawable.ic_baseline_shopping_cart_24);
 
         //set Button
-        alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        alertDialog.setPositiveButton("Save", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -167,13 +167,13 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 if (newCategory != null)
                 {
                     category.push().setValue(newCategory);
-                    Snackbar.make(drawer,"New category"+newCategory.getName()+"was added",Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(drawer,"New category "+newCategory.getName()+" was added",Snackbar.LENGTH_SHORT).show();
 
                 }
 
             }
         });
-        alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -219,7 +219,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
              .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                  @Override
                  public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-                     double progress = (100.0 *snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
+                     int progress = (int) (100.0 *snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
                      mDialog.setMessage("Uploaded "+progress+"%");
 
                  }
@@ -338,7 +338,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     private void showUpdateDialog(String key, Category item) {
         AlertDialog.Builder alertDialog=new AlertDialog.Builder(Home.this);
         alertDialog.setTitle("Update Category");
-        alertDialog.setMessage("Please fill full information");
+        alertDialog.setMessage("Enter details :");
 
         LayoutInflater inflater=this.getLayoutInflater();
         View add_menu_layout=inflater.inflate(R.layout.add_new_menu_layout,null);
@@ -369,7 +369,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         alertDialog.setIcon(R.drawable.ic_baseline_shopping_cart_24);
 
         //set Button
-        alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        alertDialog.setPositiveButton("Update", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -382,7 +382,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             }
         });
 
-        alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -427,7 +427,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-                            double progress = (100.0 *snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
+                            int progress = (int) (100.0 *snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
                             mDialog.setMessage("Uploaded "+progress+"%");
 
                         }
