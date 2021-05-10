@@ -20,7 +20,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -37,10 +36,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.hv.briskybakeserver.Common.Common;
 import com.hv.briskybakeserver.Interface.ItemClickListener;
-import com.hv.briskybakeserver.Model.Category;
 import com.hv.briskybakeserver.Model.Food;
 import com.hv.briskybakeserver.ViewHolder.FoodViewHolder;
-import com.hv.briskybakeserver.ViewHolder.MenuViewHolder;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -111,7 +108,7 @@ public class FoodList extends AppCompatActivity {
         View add_menu_layout=inflater.inflate(R.layout.add_new_food_layout,null);
 
         edtName = add_menu_layout.findViewById(R.id.TextName);
-        edtDescription = add_menu_layout.findViewById(R.id.Discription);
+        edtDescription = add_menu_layout.findViewById(R.id.Description);
         edtPrice = add_menu_layout.findViewById(R.id.Price);
         edtDiscount = add_menu_layout.findViewById(R.id.Discount);
         btnSelect = add_menu_layout.findViewById(R.id.btnSelect);
@@ -136,7 +133,7 @@ public class FoodList extends AppCompatActivity {
         alertDialog.setIcon(R.drawable.ic_baseline_shopping_cart_24);
 
         //set Button
-        alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        alertDialog.setPositiveButton("Save", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -146,13 +143,13 @@ public class FoodList extends AppCompatActivity {
                 if (newFood != null)
                 {
                     foodList.push().setValue(newFood);
-                    Snackbar.make(rootLayout,"New category"+newFood.getName()+"was added",Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(rootLayout,"New category "+newFood.getName()+" was added",Snackbar.LENGTH_SHORT).show();
 
                 }
 
             }
         });
-        alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 

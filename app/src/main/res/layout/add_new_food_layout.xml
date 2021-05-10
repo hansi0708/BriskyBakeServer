@@ -59,15 +59,15 @@
             android:paddingStart="5dp" />
 
         <EditText
-            android:id="@+id/Discription"
+            android:id="@+id/Description"
             android:layout_width="296dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:ems="10"
-            android:hint="Discription"
+            android:hint="Description"
             android:layout_marginLeft="10dp"
-            android:inputType="number"
+            android:inputType="text"
             android:paddingLeft="5dp"
             android:textSize="15sp"
             tools:ignore="Autofill,RtlSymmetry"
