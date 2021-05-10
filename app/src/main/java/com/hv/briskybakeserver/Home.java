@@ -276,13 +276,13 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
                     }
                 });
-                  final Category clickItem=model;
-                holder.setItemClickListener(new ItemClickListener() {
-                    @Override
-                    public void onClick(View view, int position, boolean isLongClick) {
-
-                    }
-                });
+         //         final Category clickItem=model;
+           //     holder.setItemClickListener(new ItemClickListener() {
+                //    @Override
+               //     public void onClick(View view, int position, boolean isLongClick) {
+//
+            //        }
+             //   });
             }
 
             @NonNull

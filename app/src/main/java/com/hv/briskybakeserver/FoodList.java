@@ -3,6 +3,8 @@ package com.hv.briskybakeserver;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,6 +39,7 @@ import com.hv.briskybakeserver.Interface.ItemClickListener;
 import com.hv.briskybakeserver.Model.Category;
 import com.hv.briskybakeserver.Model.Food;
 import com.hv.briskybakeserver.ViewHolder.FoodViewHolder;
+import com.hv.briskybakeserver.ViewHolder.MenuViewHolder;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -46,7 +49,7 @@ public class FoodList extends AppCompatActivity {
 
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
-    RelativeLayout rootLayout;
+    CoordinatorLayout rootLayout;
 
     FloatingActionButton fab;
 
@@ -73,23 +76,23 @@ public class FoodList extends AppCompatActivity {
 
         //Firebase
         db = FirebaseDatabase.getInstance();
-        foodList = db.getReference("Foods");
+        foodList = db.getReference("Food");
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
         //Init
-        recyclerView = (RecyclerView)findViewById(R.id.recycler_list);
+        recyclerView =findViewById(R.id.recycler_list);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        rootLayout =(RelativeLayout)findViewById(R.id.rootLayout);
 
-        fab = (FloatingActionButton)findViewById(R.id.fab);
+        rootLayout =findViewById(R.id.rootLayout);
+
+        fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showAddFoodDialog();
-
             }
         });
         if (getIntent() != null)
@@ -107,7 +110,7 @@ public class FoodList extends AppCompatActivity {
         View add_menu_layout=inflater.inflate(R.layout.add_new_food_layout,null);
 
         edtName = add_menu_layout.findViewById(R.id.TextName);
-        edtDescription = add_menu_layout.findViewById(R.id.Discount);
+        edtDescription = add_menu_layout.findViewById(R.id.Discription);
         edtPrice = add_menu_layout.findViewById(R.id.Price);
         edtDiscount = add_menu_layout.findViewById(R.id.Discount);
         btnSelect = add_menu_layout.findViewById(R.id.btnSelect);
@@ -214,16 +217,34 @@ public class FoodList extends AppCompatActivity {
     }
 
     private void loadListFood(String categoryId) {
-        FirebaseRecyclerOptions<Food> options=new FirebaseRecyclerOptions.Builder<Food>().setQuery(foodList.orderByChild("MenuId").equalTo(categoryId),Food.class).build();
-        adapter = new FirebaseRecyclerAdapter<Food, FoodViewHolder>(options) {
+        FirebaseRecyclerOptions<Food> options=new FirebaseRecyclerOptions.Builder<Food>().
+                setQuery(foodList.orderByChild("menuId").equalTo(categoryId),Food.class).
+                build();
+        adapter=new FirebaseRecyclerAdapter<Food, FoodViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull FoodViewHolder holder, int position, @NonNull Food model) {
                 holder.food_name.setText(model.getName());
-                Picasso.get().load(model.getImage()).into(holder.food_image);
+          //      holder.textItemPrice.setText(String.format("₹ %s",model.getPrice()));
+                Picasso.get().load(model.getImage()).into(holder.food_image, new Callback() {
+                    @Override
+                    public void onSuccess() {
+
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+
+                    }
+                });
+
+                final Food local=model;
                 holder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                        //code late
+                        //Start new Activity
+         //               Intent foodDetail=new Intent(FoodList.this,FoodDetail.class);
+        //                foodDetail.putExtra("FoodId",adapter.getRef(position).getKey()); //Send food id to new activity
+        //                startActivity(foodDetail);
                     }
                 });
             }
@@ -231,11 +252,17 @@ public class FoodList extends AppCompatActivity {
             @NonNull
             @Override
             public FoodViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                return null;
+                View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.food_item,parent,false);
+                return new FoodViewHolder(view);
             }
         };
-        adapter.notifyDataSetChanged();
+
+        GridLayoutManager gridLayoutManager=new GridLayoutManager(getApplicationContext(),1);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        adapter.startListening();
         recyclerView.setAdapter(adapter);
+
+
     }
 
     @Override

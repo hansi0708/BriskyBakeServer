@@ -58,6 +58,22 @@
             tools:ignore="Autofill,RtlSymmetry"
             android:paddingStart="5dp" />
 
+        <EditText
+            android:id="@+id/Discription"
+            android:layout_width="296dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Discription"
+            android:layout_marginLeft="10dp"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textSize="15sp"
+            tools:ignore="Autofill,RtlSymmetry"
+            android:paddingStart="5dp" />
+
+
         <LinearLayout
             android:weightSum="2"
             android:layout_width="match_parent"
