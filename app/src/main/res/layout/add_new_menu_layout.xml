@@ -23,10 +23,10 @@
             android:hint="Name"
             android:layout_marginLeft="10dp"
             android:inputType="textPersonName"
+            android:paddingStart="5dp"
             android:paddingLeft="5dp"
             android:textSize="15sp"
-            tools:ignore="Autofill,RtlSymmetry"
-            android:paddingStart="5dp" />
+            tools:ignore="Autofill,RtlSymmetry" />
 
         <LinearLayout
             android:weightSum="2"
@@ -36,27 +36,27 @@
 
             <Button
                 android:id="@+id/btnSelect"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
-                android:textAllCaps="false"
+                android:layout_weight="1"
                 android:background="@drawable/btncorners"
                 android:text="SELECT"
+                android:textAllCaps="false"
                 app:backgroundTint="@color/buttoncolor" />
 
             <Button
                 android:id="@+id/btnUpload"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="41dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
-                android:textAllCaps="false"
+                android:layout_weight="1"
                 android:background="@drawable/btncorners"
                 android:text="UPLOAD"
+                android:textAllCaps="false"
                 app:backgroundTint="@color/buttoncolor" />
 
         </LinearLayout>
