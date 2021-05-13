@@ -13,11 +13,11 @@
             android:icon="@drawable/ic_baseline_shopping_cart_24"
             android:title="Cart" />
         <item
-            android:id="@+id/nav_Order"
+            android:id="@+id/nav_orders"
             android:icon="@drawable/ic_baseline_access_time_24"
             android:title="Order" />
         <item
-            android:id="@+id/nav_signout"
+            android:id="@+id/nav_logout"
             android:icon="@drawable/ic_baseline_exit_to_app_24"
             android:title="SignOut" />
     </group>

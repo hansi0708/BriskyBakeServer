@@ -310,13 +310,16 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id=item.getItemId();
-
+        if(id==R.id.nav_orders){
+            Intent orderIntent=new Intent(Home.this,OrderStatus.class);
+            startActivity(orderIntent);
+        }
         DrawerLayout drawer=findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    // Update/Delete
 
+    // Update/Delete
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         if (item.getTitle().equals(Common.UPDATE))

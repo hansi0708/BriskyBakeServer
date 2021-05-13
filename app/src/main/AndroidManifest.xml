@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BriskyBakeServer">
-        <activity android:name=".FoodList"></activity>
+        <activity android:name=".OrderStatus"></activity>
+        <activity android:name=".FoodList" />
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
