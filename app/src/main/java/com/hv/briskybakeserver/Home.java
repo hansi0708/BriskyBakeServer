@@ -115,6 +115,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         //set name for user
         View headerView = navigationView.getHeaderView(0);
         txtFullName = headerView.findViewById(R.id.textFullName);
+     //   Common userName= new Common();
         txtFullName.setText(Common.currentUser.getName());
 
         //Load Menu
@@ -142,7 +143,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         btnSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chooseImage();//let user select Image from gallery and save Url of the image
+                chooseImage();   //let user select Image from gallery and save Url of the image
             }
         });
 
@@ -163,7 +164,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
                 dialog.dismiss();
 
-                //new Caregory
+                //new Category
                 if (newCategory != null)
                 {
                     category.push().setValue(newCategory);

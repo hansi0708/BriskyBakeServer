@@ -1,7 +1,8 @@
 package com.hv.briskybakeserver.Model;
 
 public class User {
-    private String Name,Password,Phone,IsStaff,Email;
+
+    private String Name,Password,Phone,Email;
 
     public User(String name, String password) {
         Name = name;
