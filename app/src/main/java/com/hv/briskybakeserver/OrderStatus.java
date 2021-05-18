@@ -27,6 +27,8 @@ import com.hv.briskybakeserver.Model.Request;
 import com.hv.briskybakeserver.ViewHolder.OrderViewHolder;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
+import java.util.List;
+
 import static com.hv.briskybakeserver.Common.Common.currentRequest;
 import static com.hv.briskybakeserver.Common.Common.currentUser;
 
@@ -128,9 +130,9 @@ public class OrderStatus extends AppCompatActivity {
         alertDialog.setMessage("Choose status :");
 
         LayoutInflater inflater=this.getLayoutInflater();
-        View view=inflater.inflate(R.layout.update_order_layout,null);
+        final View view=inflater.inflate(R.layout.update_order_layout,null);
 
-        spinner=findViewById(R.id.statusSpinner);
+        spinner=view.findViewById(R.id.statusSpinner);
         spinner.setItems("Placed","On the Way","Shipped");
 
         alertDialog.setView(view);
