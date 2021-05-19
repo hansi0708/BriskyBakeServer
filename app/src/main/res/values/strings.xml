@@ -20,4 +20,5 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="cartfab">cart</string>
+    <string name="title_activity_tracking_order">Map</string>
 </resources>
