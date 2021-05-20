@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.maps.MapView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.hv.briskybakeserver.Common.Common;
@@ -43,6 +44,8 @@ public class OrderStatus extends AppCompatActivity {
     DatabaseReference requests;
 
     MaterialSpinner spinner;
+    
+    MapView mapview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
