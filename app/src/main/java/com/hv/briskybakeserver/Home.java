@@ -23,8 +23,12 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -335,6 +339,24 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     }
 
     private void deleteCategory(String key) {
+        
+        DatabaseReference foods=database.getReference("Foods");
+        Query foodInCategory=foods.orderByChild("menuId").equalTo(key);
+        foodInCategory.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot postSnapshot:snapshot.getChildren())
+                {
+                    postSnapshot.getRef().removeValue();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        
         category.child(key).removeValue();
         Toast.makeText(this, "Item Deleted Successfully! ", Toast.LENGTH_SHORT).show();
     }

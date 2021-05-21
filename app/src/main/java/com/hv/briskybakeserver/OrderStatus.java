@@ -106,9 +106,9 @@ public class OrderStatus extends AppCompatActivity {
                 holder.btnDirection.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent trackingOrder=new Intent(OrderStatus.this,TrackingOrder.class);
-                        currentRequest=model;
-                        startActivity(trackingOrder);
+               //         Intent trackingOrder=new Intent(OrderStatus.this,TrackingOrder.class);
+              //          currentRequest=model;
+                 //       startActivity(trackingOrder);
                     }
                 });
 
