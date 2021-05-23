@@ -8,6 +8,8 @@ import android.graphics.Paint;
 import com.hv.briskybakeserver.Model.Request;
 import com.hv.briskybakeserver.Model.User;
 import com.hv.briskybakeserver.Model.Request;
+import com.hv.briskybakeserver.Remote.APIService;
+import com.hv.briskybakeserver.Remote.FCMRetrofitClient;
 import com.hv.briskybakeserver.Remote.IGeoCoordinates;
 import com.hv.briskybakeserver.Remote.RetrofitClient;
 
@@ -20,6 +22,13 @@ public class Common {
     public static final int PICK_IMAGE_REQUEST = 71;
 
     public static final String baseUrl="https://maps.googleapis.com";
+
+    private static final String fcmURL="https://fcm.googleapis.com/";
+
+    public static APIService getFCMService()
+    {
+        return FCMRetrofitClient.getClient(fcmURL).create(APIService.class);
+    }
 
     public static String convertCodeToStatus(String status) {
         if (status.equals("0"))

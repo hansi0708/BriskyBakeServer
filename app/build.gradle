@@ -70,5 +70,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
 
     implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:9.6.1'
+
+    implementation 'com.google.firebase:firebase-messaging:22.0.0'
 }
 apply plugin: 'com.google.gms.google-services'

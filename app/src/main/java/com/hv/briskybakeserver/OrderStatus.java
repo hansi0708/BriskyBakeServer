@@ -10,25 +10,39 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.maps.MapView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.hv.briskybakeserver.Common.Common;
 import com.hv.briskybakeserver.Interface.ItemClickListener;
+import com.hv.briskybakeserver.Model.MyResponse;
+import com.hv.briskybakeserver.Model.Notification;
 import com.hv.briskybakeserver.Model.Order;
 import com.hv.briskybakeserver.Model.Request;
+import com.hv.briskybakeserver.Model.Sender;
+import com.hv.briskybakeserver.Model.Token;
+import com.hv.briskybakeserver.Remote.APIService;
 import com.hv.briskybakeserver.ViewHolder.OrderViewHolder;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static com.hv.briskybakeserver.Common.Common.currentRequest;
 import static com.hv.briskybakeserver.Common.Common.currentUser;
@@ -47,6 +61,8 @@ public class OrderStatus extends AppCompatActivity {
     
     MapView mapview;
 
+    APIService mService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +71,9 @@ public class OrderStatus extends AppCompatActivity {
         //Firebase
         database=FirebaseDatabase.getInstance();
         requests=database.getReference("Requests");
+
+        //Init service
+        mService=Common.getFCMService();
 
         recyclerView=findViewById(R.id.listOrders);
         recyclerView.setHasFixedSize(true);
@@ -153,6 +172,7 @@ public class OrderStatus extends AppCompatActivity {
 
                 requests.child(localKey).setValue(item);
                 adapter.notifyDataSetChanged();
+                sendOrderStatusToUser(localKey,item);
             }
         });
 
@@ -164,5 +184,48 @@ public class OrderStatus extends AppCompatActivity {
         });
 
         alertDialog.show();
+    }
+
+    private void sendOrderStatusToUser(final String key,final Request item) {
+        DatabaseReference tokens=database.getReference("Tokens");
+        tokens.orderByKey().equalTo(item.getPhone())
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot postSnapshot:snapshot.getChildren())
+                        {
+                            Token token=postSnapshot.getValue(Token.class);
+
+                            //Make raw payload
+                            Notification notification=new Notification("BriskyBake","Your order"+key+"was updated");
+                            Sender content=new Sender(token.getToken(),notification);
+
+                            mService.sendNotification(content)
+                                    .enqueue(new Callback<MyResponse>() {
+                                        @Override
+                                        public void onResponse(Call<MyResponse> call, Response<MyResponse> response) {
+                                            if (response.body().success==1)
+                                            {
+                                                Toast.makeText(OrderStatus.this, "Order was updated!", Toast.LENGTH_SHORT).show();
+                                            }
+                                            else
+                                            {
+                                                Toast.makeText(OrderStatus.this, "Order was updated but could not send notification", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<MyResponse> call, Throwable t) {
+                                            Log.e("ERROR",t.getMessage());
+                                        }
+                                    });
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
     }
 }
