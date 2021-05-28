@@ -3,19 +3,19 @@ package com.hv.briskybakeserver.Model;
 import com.google.android.gms.tasks.Task;
 
 public class Sender {
-    public String to;
+    public Task<String> to;
     public Notification notification;
 
-    public Sender(String to, Notification notification) {
+    public Sender(Task<String> to, Notification notification) {
         this.to = to;
         this.notification = notification;
     }
 
-    public String getTo() {
+    public Task<String> getTo() {
         return to;
     }
 
-    public void setTo(String to) {
+    public void setTo(Task<String> to) {
         this.to = to;
     }
 

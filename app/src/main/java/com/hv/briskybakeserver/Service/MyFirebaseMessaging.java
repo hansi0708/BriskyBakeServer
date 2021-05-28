@@ -6,16 +6,38 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.hv.briskybakeserver.Common.Common;
 import com.hv.briskybakeserver.MainActivity;
+import com.hv.briskybakeserver.Model.Token;
 import com.hv.briskybakeserver.R;
 
+import static com.hv.briskybakeserver.Common.Common.currentRequest;
+
 public class MyFirebaseMessaging extends FirebaseMessagingService {
+
+    public void onNewToken(@NonNull Task<String> s) {
+        super.onNewToken(String.valueOf(s));
+        Log.d("NEW_TOKEN",String.valueOf(s));
+        if(currentRequest!=null)
+            updateToServer(s);
+    }
+
+    private void updateToServer(Task<String> token) {
+        FirebaseDatabase db=FirebaseDatabase.getInstance();
+        DatabaseReference tokens=db.getReference("Tokens");
+        Token data=new Token(token,true);
+        tokens.child(Common.currentRequest.getPhone()).setValue(data);
+    }
 
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {

@@ -60,6 +60,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.UUID;
 
+import static com.hv.briskybakeserver.Common.Common.currentRequest;
+
 public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
 
@@ -95,7 +97,10 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         toolbar.setTitle("Menu management");
         setSupportActionBar(toolbar);
 
-        updateToken(FirebaseMessaging.getInstance().getToken());
+        if(currentRequest!=null)
+        {
+            updateToken(FirebaseMessaging.getInstance().getToken());
+        }
         
         //Init Firebase
         database=FirebaseDatabase.getInstance();
@@ -140,7 +145,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         FirebaseDatabase db=FirebaseDatabase.getInstance();
         DatabaseReference tokens=db.getReference("Tokens");
         Token data=new Token(token,true);
-        tokens.child(Common.currentUser.getPhone()).setValue(data);
+        tokens.child(currentRequest.getPhone()).setValue(data);
     }
 
     private void showDialog() {
