@@ -11,9 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_margin="20dp">
+        android:padding="16dp">
 
         <EditText
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:id="@+id/TextName"
             android:layout_width="296dp"
             android:layout_height="wrap_content"
@@ -21,11 +22,11 @@
             android:layout_marginTop="10dp"
             android:ems="10"
             android:hint="Name"
-            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/poppins_light"
             android:inputType="textPersonName"
             android:paddingStart="5dp"
             android:paddingLeft="5dp"
-            android:textSize="15sp"
+            android:textSize="20sp"
             tools:ignore="Autofill,RtlSymmetry" />
 
         <LinearLayout
@@ -42,7 +43,9 @@
                 android:layout_marginBottom="20dp"
                 android:layout_weight="1"
                 android:background="@drawable/btncorners"
-                android:text="SELECT"
+                android:text="SELECT IMAGE"
+                android:fontFamily="@font/poppins_light"
+                android:textStyle="bold"
                 android:textAllCaps="false"
                 app:backgroundTint="@color/buttoncolor" />
 
@@ -56,6 +59,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/btncorners"
                 android:text="UPLOAD"
+                android:fontFamily="@font/poppins_light"
+                android:textStyle="bold"
                 android:textAllCaps="false"
                 app:backgroundTint="@color/buttoncolor" />
 

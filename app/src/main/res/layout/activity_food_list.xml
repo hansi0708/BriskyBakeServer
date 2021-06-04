@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/buttoncolor"
     android:id="@+id/rootLayout"
     tools:context=".FoodList">
 
@@ -26,7 +27,7 @@
         app:tint="@color/white"
         android:visibility="visible"
         app:backgroundTintMode="add"
-        app:srcCompat="@drawable/carticon"
+        app:srcCompat="@drawable/ic_add"
         tools:ignore="UnusedAttribute,VectorDrawableCompat" />
 
 

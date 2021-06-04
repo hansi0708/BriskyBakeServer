@@ -46,6 +46,7 @@
             android:drawableLeft="@drawable/tbicon_phone"
             android:ems="10"
             android:hint="@string/phone"
+            android:fontFamily="@font/poppins_light"
             android:inputType="phone"
             android:paddingLeft="5dp"
             android:textSize="15sp"
@@ -71,6 +72,7 @@
                 android:drawableLeft="@drawable/tbiconpassword"
                 android:ems="10"
                 android:hint="@string/password"
+                android:fontFamily="@font/poppins_light"
                 android:inputType="textPassword"
                 android:paddingLeft="5dp"
                 android:paddingStart="5dp"
@@ -79,29 +81,17 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/directtofrgpass"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/forgot_password"
-            android:textAllCaps="false"
-            android:layout_gravity="end"
-            android:layout_marginRight="12dp"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            app:backgroundTint="@color/backgroundcolor"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            />
+
 
         <Button
             android:id="@+id/btnsignin"
             android:layout_width="330dp"
             android:layout_height="40dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:textAllCaps="false"
+            android:fontFamily="@font/poppins_light"
+            android:textStyle="bold"
             android:background="@drawable/btncorners"
             android:text="@string/log_in"
             app:backgroundTint="@color/buttoncolor" />

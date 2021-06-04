@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
@@ -81,31 +82,54 @@
 
             <Button
                 android:id="@+id/edit"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="35dp"
                 android:layout_height="wrap_content"
-                android:text="Edit"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/btncorners"
+                android:text="EDIT"
+                android:fontFamily="@font/poppins_light"
+                android:textStyle="bold"
+                android:textSize="10sp"
+                android:textAllCaps="false"
+                app:backgroundTint="@color/buttoncolor" />
 
             <Button
                 android:id="@+id/remove"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="35dp"
                 android:layout_height="wrap_content"
-                android:text="Remove"/>
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/btncorners"
+                android:text="REMOVE"
+                android:fontFamily="@font/poppins_light"
+                android:textStyle="bold"
+                android:textSize="10sp"
+                android:textAllCaps="false"
+                app:backgroundTint="@color/buttoncolor" />
 
             <Button
                 android:id="@+id/detail"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="35dp"
                 android:layout_height="wrap_content"
-                android:text="Detail"/>
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/btncorners"
+                android:text="DETAILS"
+                android:fontFamily="@font/poppins_light"
+                android:textStyle="bold"
+                android:textSize="10sp"
+                android:textAllCaps="false"
+                app:backgroundTint="@color/buttoncolor"
+                tools:ignore="SmallSp" />
 
-            <Button
-                android:id="@+id/direction"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="Directions"/>
 
 
         </LinearLayout>

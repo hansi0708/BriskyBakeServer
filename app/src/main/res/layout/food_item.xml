@@ -4,12 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:orientation="vertical"
-    app:cardElevation="4dp">
+    android:layout_margin="10dp"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="8dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <ImageView
             android:id="@+id/food_image"
@@ -25,9 +27,9 @@
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
             android:background="@color/backgroundcolor"
-            android:fontFamily="popins"
+            android:fontFamily="@font/poppins_light"
             android:gravity="center"
-            android:text="Name of Food"
+            android:text="@string/name_of_menu"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />

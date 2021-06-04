@@ -38,7 +38,6 @@ import com.google.firebase.storage.UploadTask;
 import com.hv.briskybakeserver.Common.Common;
 import com.hv.briskybakeserver.Interface.ItemClickListener;
 import com.hv.briskybakeserver.Model.Category;
-import com.hv.briskybakeserver.Model.Token;
 import com.hv.briskybakeserver.ViewHolder.MenuViewHolder;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -47,10 +46,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -97,11 +92,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         toolbar.setTitle("Menu management");
         setSupportActionBar(toolbar);
 
-        if(currentRequest!=null)
-        {
-            updateToken(FirebaseMessaging.getInstance().getToken());
-        }
-        
         //Init Firebase
         database=FirebaseDatabase.getInstance();
         category= database.getReference("Category");
@@ -141,12 +131,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         loadMenu();
     }
 
-    private void updateToken(Task<String> token) {
-        FirebaseDatabase db=FirebaseDatabase.getInstance();
-        DatabaseReference tokens=db.getReference("Tokens");
-        Token data=new Token(token,true);
-        tokens.child(currentRequest.getPhone()).setValue(data);
-    }
 
     private void showDialog() {
         AlertDialog.Builder alertDialog=new AlertDialog.Builder(Home.this);

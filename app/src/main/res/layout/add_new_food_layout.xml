@@ -11,9 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_margin="20dp">
+        android:padding="16dp">
 
         <EditText
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:id="@+id/TextName"
             android:layout_width="296dp"
             android:layout_height="wrap_content"
@@ -21,13 +22,15 @@
             android:layout_marginTop="10dp"
             android:ems="10"
             android:hint="Name"
-            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/poppins_light"
             android:inputType="textPersonName"
             android:paddingLeft="5dp"
-            android:textSize="15sp"
+            android:textSize="20sp"
             tools:ignore="Autofill,RtlSymmetry"
             android:paddingStart="5dp" />
+
         <EditText
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:id="@+id/Price"
             android:layout_width="296dp"
             android:layout_height="wrap_content"
@@ -35,15 +38,15 @@
             android:layout_marginTop="10dp"
             android:ems="10"
             android:hint="Price"
-            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/poppins_light"
             android:inputType="textPersonName"
             android:paddingLeft="5dp"
-            android:textSize="15sp"
+            android:textSize="20sp"
             tools:ignore="Autofill,RtlSymmetry"
             android:paddingStart="5dp" />
 
-
         <EditText
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:id="@+id/Discount"
             android:layout_width="296dp"
             android:layout_height="wrap_content"
@@ -51,14 +54,15 @@
             android:layout_marginTop="10dp"
             android:ems="10"
             android:hint="Discount"
-            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/poppins_light"
             android:inputType="number"
             android:paddingLeft="5dp"
-            android:textSize="15sp"
+            android:textSize="20sp"
             tools:ignore="Autofill,RtlSymmetry"
             android:paddingStart="5dp" />
 
         <EditText
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:id="@+id/Description"
             android:layout_width="296dp"
             android:layout_height="wrap_content"
@@ -66,11 +70,11 @@
             android:layout_marginTop="10dp"
             android:ems="10"
             android:hint="Description"
-            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/poppins_light"
             android:inputType="text"
             android:paddingLeft="5dp"
             android:paddingRight="10dp"
-            android:textSize="15sp"
+            android:textSize="20sp"
             tools:ignore="Autofill,RtlSymmetry"
             android:paddingStart="5dp"
             android:paddingEnd="10dp"
@@ -92,7 +96,9 @@
                 android:layout_marginBottom="20dp"
                 android:textAllCaps="false"
                 android:background="@drawable/btncorners"
-                android:text="SELECT"
+                android:text="SELECT IMAGE"
+                android:fontFamily="@font/poppins_light"
+                android:textStyle="bold"
                 app:backgroundTint="@color/buttoncolor" />
 
             <Button
@@ -106,6 +112,8 @@
                 android:textAllCaps="false"
                 android:background="@drawable/btncorners"
                 android:text="UPLOAD"
+                android:fontFamily="@font/poppins_light"
+                android:textStyle="bold"
                 app:backgroundTint="@color/buttoncolor" />
 
         </LinearLayout>

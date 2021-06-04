@@ -5,67 +5,77 @@
         android:id="@+id/order_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/backgroundcolor"
         android:layout_margin="8dp"
         app:cardElevation="4dp"
         >
 
+    <LinearLayout
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <LinearLayout
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:orientation="horizontal"
-            android:layout_gravity="center_vertical"
-            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="9"
+            android:layout_width="0dp"
             android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="9"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/product_name"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical|start"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:text="Product Name"
+                android:padding="2dp"
+                android:fontFamily="@font/poppins_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-                <TextView
-                    android:id="@+id/product_name"
-                    android:layout_marginLeft="10dp"
-                    android:gravity="center_vertical|start"
-                    android:textAllCaps="true"
-                    android:textStyle="bold"
-                    android:text="Product Name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/product_quantity"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical|start"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:text="Product Quantity"
+                android:padding="2dp"
+                android:fontFamily="@font/poppins_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-                <TextView
-                    android:id="@+id/product_quantity"
-                    android:layout_marginLeft="10dp"
-                    android:layout_gravity="center_vertical|start"
-                    android:textAllCaps="true"
-                    android:textStyle="italic"
-                    android:text="Product Quantity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/product_price"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical|start"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:text="Product Price"
+                android:padding="2dp"
+                android:fontFamily="@font/poppins_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-                <TextView
-                    android:id="@+id/product_price"
-                    android:layout_marginLeft="10dp"
-                    android:layout_gravity="center_vertical|start"
-                    android:textAllCaps="true"
-                    android:textStyle="italic"
-                    android:text="Product Price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:id="@+id/product_discount"
-                    android:layout_marginLeft="10dp"
-                    android:layout_gravity="center_vertical|start"
-                    android:textAllCaps="true"
-                    android:textStyle="italic"
-                    android:text="Product Discount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-
+            <TextView
+                android:id="@+id/product_discount"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical|start"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:text="Product Discount"
+                android:padding="2dp"
+                android:fontFamily="@font/poppins_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
+
+
+
+    </LinearLayout>
+
     </androidx.cardview.widget.CardView>

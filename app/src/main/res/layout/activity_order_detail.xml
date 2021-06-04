@@ -11,8 +11,8 @@
         android:id="@+id/order_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
         app:cardElevation="4dp"
+        android:backgroundTint="@color/backgroundcolor"
         >
 
         <LinearLayout
@@ -21,6 +21,8 @@
             android:orientation="horizontal"
             android:layout_gravity="center_vertical"
             android:layout_width="match_parent"
+            android:background="@drawable/btncorners"
+            android:layout_margin="8dp"
             android:layout_height="wrap_content">
 
             <LinearLayout
@@ -31,20 +33,28 @@
 
                 <TextView
                     android:id="@+id/order_id"
-                    android:layout_marginLeft="10dp"
-                    android:gravity="center_vertical|start"
-                    android:textAllCaps="true"
-                    android:textStyle="bold"
-                    android:text="#11111"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/poppins_light"
+                    android:gravity="center_vertical|start"
+                    android:padding="2dp"
+                    android:layout_marginRight="2dp"
+                    android:textColor="@color/white"
+                    android:text="#11111"
+                    android:textAllCaps="true"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/order_phone"
                     android:layout_marginLeft="10dp"
                     android:layout_gravity="center_vertical|start"
                     android:textAllCaps="true"
-                    android:textStyle="italic"
+                    android:textStyle="bold"
+                    android:layout_marginRight="2dp"
+                    android:fontFamily="@font/poppins_light"
+                    android:textColor="@color/white"
+                    android:padding="2dp"
                     android:text="Phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -54,7 +64,11 @@
                     android:layout_marginLeft="10dp"
                     android:layout_gravity="center_vertical|start"
                     android:textAllCaps="true"
-                    android:textStyle="italic"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins_light"
+                    android:padding="2dp"
+                    android:layout_marginRight="2dp"
                     android:text="1000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -64,7 +78,11 @@
                     android:layout_marginLeft="10dp"
                     android:layout_gravity="center_vertical|start"
                     android:textAllCaps="true"
-                    android:textStyle="italic"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins_light"
+                    android:padding="2dp"
+                    android:layout_marginRight="2dp"
                     android:text="Address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -74,7 +92,11 @@
                     android:layout_marginLeft="10dp"
                     android:layout_gravity="center_vertical|start"
                     android:textAllCaps="true"
-                    android:textStyle="italic"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins_light"
+                    android:padding="2dp"
+                    android:layout_marginRight="2dp"
                     android:text="Comment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -99,6 +121,8 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="30sp"
+            android:fontFamily="@font/poppins_light"
+            android:textStyle="bold"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="8dp"/>
 

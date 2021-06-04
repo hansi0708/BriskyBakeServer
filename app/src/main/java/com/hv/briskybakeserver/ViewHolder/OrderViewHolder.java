@@ -31,7 +31,7 @@ public class OrderViewHolder extends RecyclerView.ViewHolder
             btnEdit=itemView.findViewById(R.id.edit);
             btnRemove=itemView.findViewById(R.id.remove);
             btnDetail=itemView.findViewById(R.id.detail);
-            btnDirection=itemView.findViewById(R.id.direction);
+           // btnDirection=itemView.findViewById(R.id.direction);
 
 
          //   itemView.setOnClickListener(this);

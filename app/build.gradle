@@ -72,5 +72,7 @@ dependencies {
     implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:9.6.1'
 
     implementation 'com.google.firebase:firebase-messaging:22.0.0'
+
+    implementation 'com.razorpay:checkout:1.6.6'
 }
 apply plugin: 'com.google.gms.google-services'
