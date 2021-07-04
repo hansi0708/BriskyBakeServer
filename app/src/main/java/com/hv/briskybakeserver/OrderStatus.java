@@ -9,6 +9,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -93,7 +94,14 @@ public class OrderStatus extends AppCompatActivity {
                         startActivity(orderDetail);
                     }
                 });
+                holder.map.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.e("OrderDetail", "onClick: "+"cgddgd" );
+                         startActivity(new Intent(OrderStatus.this, MapsActivity.class));
 
+                    }
+                });
            //     holder.btnDirection.setOnClickListener(new View.OnClickListener() {
              //       @Override
         //            public void onClick(View v) {

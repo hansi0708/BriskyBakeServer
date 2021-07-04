@@ -4,10 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.hv.briskybakeserver.Common.Common;
+import com.hv.briskybakeserver.Model.Order;
 import com.hv.briskybakeserver.ViewHolder.OrderDetailAdapter;
 
 public class OrderDetail extends AppCompatActivity {
@@ -17,11 +21,11 @@ public class OrderDetail extends AppCompatActivity {
     RecyclerView listFoods;
     RecyclerView.LayoutManager layoutManager;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_detail);
+
 
         order_id=findViewById(R.id.order_id);
         order_phone=findViewById(R.id.order_phone);
@@ -49,5 +53,9 @@ public class OrderDetail extends AppCompatActivity {
         adapter.notifyDataSetChanged();
         listFoods.setAdapter(adapter);
 
+
+
+
     }
+
 }

@@ -120,7 +120,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         View headerView = navigationView.getHeaderView(0);
         txtFullName = headerView.findViewById(R.id.textFullName);
      //   Common userName= new Common();
-        txtFullName.setText(Common.currentUser.getName());
+       // txtFullName.setText(Common.currentUser.getName());
 
         //Load Menu
         recycler_menu=findViewById(R.id.recycler_menu);

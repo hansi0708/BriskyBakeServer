@@ -23,4 +23,5 @@
     <string name="title_activity_tracking_order">Map</string>
     <string name="mapbox_access_token">pk.eyJ1IjoiaGFuc2kwNzA4IiwiYSI6ImNrb3dtcnNubjA2ZnQydnQ2aHFvdnYwZ24ifQ.OzpT9c9dkCF-k2nElFqEzQ</string>
     <string name="name_of_menu">Name of Menu</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
