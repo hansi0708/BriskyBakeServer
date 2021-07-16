@@ -10,11 +10,16 @@ import com.hv.briskybakeserver.Model.User;
 import com.hv.briskybakeserver.Remote.IGeoCoordinates;
 import com.hv.briskybakeserver.Remote.RetrofitClient;
 
+import java.util.Calendar;
+import java.util.Locale;
+
 public class Common {
     public static User currentUser;
     public static Request currentRequest;
 
     public static final String UPDATE ="Update";
+    public static final String UPDATE_FOOD ="Update Food";
+    public static final String UPDATE_UNIT ="Update Unit";
     public static final String DELETE ="Delete";
     public static final int PICK_IMAGE_REQUEST = 71;
 
@@ -52,5 +57,17 @@ public class Common {
         canvas.drawBitmap(bitmap,0,0,new Paint(Paint.FILTER_BITMAP_FLAG));
 
         return scaledBitmap;
+    }
+
+    public static String getDate(long time)
+    {
+        Calendar calendar=Calendar.getInstance(Locale.ENGLISH);
+        calendar.setTimeInMillis(time);
+        StringBuilder date=new StringBuilder(
+                android.text.format.DateFormat.format("dd-MM-yyyy HH:mm"
+                        ,calendar)
+                        .toString()
+        );
+        return date.toString();
     }
 }

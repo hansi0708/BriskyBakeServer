@@ -65,14 +65,12 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     RecyclerView recycler_menu;
     RecyclerView.LayoutManager layoutManager;
 
-    //Add new Menu
     EditText edtName;
     Button btnUpload,btnSelect;
 
     Category newCategory;
 
     Uri saveUri;
-
 
     DrawerLayout drawer;
 
@@ -92,7 +90,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         toolbar.setTitle("Menu management");
         setSupportActionBar(toolbar);
 
-        //Init Firebase
         database=FirebaseDatabase.getInstance();
         category= database.getReference("Category");
         storage=FirebaseStorage.getInstance();
@@ -113,16 +110,10 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
 
-        //set name for user
         View headerView = navigationView.getHeaderView(0);
         txtFullName = headerView.findViewById(R.id.textFullName);
-     //   Common userName= new Common();
-       // txtFullName.setText(Common.currentUser.getName());
 
-        //Load Menu
         recycler_menu=findViewById(R.id.recycler_menu);
         recycler_menu.setHasFixedSize(true);
         layoutManager=new LinearLayoutManager(this);
@@ -130,7 +121,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         loadMenu();
     }
-
 
     private void showDialog() {
         AlertDialog.Builder alertDialog=new AlertDialog.Builder(Home.this);
@@ -160,25 +150,19 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         });
 
         alertDialog.setView(add_menu_layout);
-        alertDialog.setIcon(R.drawable.ic_baseline_shopping_cart_24);
 
-        //set Button
         alertDialog.setPositiveButton("Save", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
                 dialog.dismiss();
-
-                //new Category
                 if (newCategory != null)
                 {
                     category.push().setValue(newCategory);
                     Snackbar.make(drawer,"New category "+newCategory.getName()+" was added",Snackbar.LENGTH_SHORT).show();
-
                 }
-
             }
         });
+
         alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -325,7 +309,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         return true;
     }
 
-    // Update/Delete
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         if (item.getTitle().equals(Common.UPDATE))

@@ -25,7 +25,7 @@
             android:fontFamily="@font/poppins_light"
             android:inputType="textPersonName"
             android:paddingLeft="5dp"
-            android:textSize="13sp"
+            android:textSize="20sp"
             tools:ignore="Autofill,RtlSymmetry"
             android:paddingStart="5dp" />
 
@@ -36,12 +36,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:ems="4"
+            android:ems="10"
             android:hint="Value"
             android:fontFamily="@font/poppins_light"
             android:inputType="textPersonName"
             android:paddingLeft="5dp"
-            android:textSize="13sp"
+            android:textSize="20sp"
             tools:ignore="Autofill,RtlSymmetry"
             android:paddingStart="5dp" />
 
@@ -57,7 +57,7 @@
             android:fontFamily="@font/poppins_light"
             android:inputType="textPersonName"
             android:paddingLeft="5dp"
-            android:textSize="13sp"
+            android:textSize="20sp"
             tools:ignore="Autofill,RtlSymmetry"
             android:paddingStart="5dp" />
 
@@ -73,7 +73,7 @@
             android:fontFamily="@font/poppins_light"
             android:inputType="number"
             android:paddingLeft="5dp"
-            android:textSize="13sp"
+            android:textSize="20sp"
             tools:ignore="Autofill,RtlSymmetry"
             android:paddingStart="5dp" />
 
@@ -90,55 +90,12 @@
             android:inputType="text"
             android:paddingLeft="5dp"
             android:paddingRight="10dp"
-            android:textSize="13sp"
+            android:textSize="20sp"
             tools:ignore="Autofill,RtlSymmetry"
             android:paddingStart="5dp"
             android:paddingEnd="10dp"
             />
 
-        <LinearLayout
-            android:weightSum="1"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <EditText
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:id="@+id/Unit_element"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:ems="4"
-                android:hint="Unit"
-                android:fontFamily="@font/poppins_light"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="10dp"
-                android:textSize="13sp"
-                tools:ignore="Autofill,RtlSymmetry"
-                android:paddingStart="5dp"
-                android:paddingEnd="10dp"
-                />
-
-            <Button
-                android:id="@+id/btnAdd"
-                android:layout_width="wrap_content"
-                android:layout_weight="0"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:textAllCaps="false"
-                android:background="@drawable/btncorners"
-                android:text="ADD"
-                android:fontFamily="@font/poppins_light"
-                android:textStyle="bold"
-                android:textSize="11sp"
-                app:backgroundTint="@color/buttoncolor" />
-
-
-
-        </LinearLayout>
 
         <LinearLayout
             android:weightSum="2"

@@ -4,6 +4,7 @@ public class Category {
     private String Name;
     private String Image;
 
+
     public Category() {
     }
 
@@ -11,6 +12,7 @@ public class Category {
         Name = name;
         Image = image;
     }
+
 
     public String getName() {
         return Name;

@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -38,9 +39,12 @@ import com.hv.briskybakeserver.Common.Common;
 import com.hv.briskybakeserver.Interface.ItemClickListener;
 import com.hv.briskybakeserver.Model.Food;
 import com.hv.briskybakeserver.ViewHolder.FoodViewHolder;
+import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class FoodList extends AppCompatActivity {
@@ -62,10 +66,13 @@ public class FoodList extends AppCompatActivity {
     FirebaseRecyclerAdapter<Food, FoodViewHolder> adapter;
 
     //Add new food
-    EditText edtName,edtDescription,edtPrice,edtDiscount;
-    Button btnSelect,btnUpload;
+    EditText edtName,edtDescription,edtPrice,edtDiscount,edtFoodValue,edtUnit,edtUnitUpdate;
+    Button unitAdd,unitEdit,unitUpdate,unitDelete;
+    MaterialSpinner spinnerUnit;
+    Button btnSelect,btnUpload,bAdd;
     Food newFood;
     Uri saveUri;
+    List<String> arrUnit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +84,8 @@ public class FoodList extends AppCompatActivity {
         foodList = db.getReference("Food");
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
+
+        arrUnit=new ArrayList<>();
 
         //Init
         recyclerView =findViewById(R.id.recycler_list);
@@ -93,8 +102,11 @@ public class FoodList extends AppCompatActivity {
                 showAddFoodDialog();
             }
         });
-        if (getIntent() != null)
+
+
+        if(getIntent()!=null) {
             categoryId = getIntent().getStringExtra("CategoryId");
+        }
         if (!categoryId.isEmpty())
             loadListFood(categoryId);
     }
@@ -110,9 +122,12 @@ public class FoodList extends AppCompatActivity {
         edtName = add_menu_layout.findViewById(R.id.TextName);
         edtDescription = add_menu_layout.findViewById(R.id.Description);
         edtPrice = add_menu_layout.findViewById(R.id.Price);
+        edtFoodValue=add_menu_layout.findViewById(R.id.FoodValue);
         edtDiscount = add_menu_layout.findViewById(R.id.Discount);
+        edtUnit=add_menu_layout.findViewById(R.id.Unit_element);
         btnSelect = add_menu_layout.findViewById(R.id.btnSelect);
         btnUpload = add_menu_layout.findViewById(R.id.btnUpload);
+        bAdd=add_menu_layout.findViewById(R.id.btnAdd);
 
         //Event for Button
         btnSelect.setOnClickListener(new View.OnClickListener() {
@@ -129,6 +144,23 @@ public class FoodList extends AppCompatActivity {
             }
         });
 
+        //=new List<String>();
+
+        bAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!(edtUnit.getText().toString().isEmpty())&&!(arrUnit.contains(edtUnit.getText().toString())))
+                {
+                    arrUnit.add(edtUnit.getText().toString());
+                    Toast.makeText(FoodList.this, "Unit Added!!", Toast.LENGTH_SHORT).show();
+                }
+                if ((edtUnit.getText().toString().isEmpty())&&arrUnit.isEmpty())
+                {
+                    Toast.makeText(FoodList.this, "No unit added. Please enter a unit", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         alertDialog.setView(add_menu_layout);
         alertDialog.setIcon(R.drawable.ic_baseline_shopping_cart_24);
 
@@ -137,14 +169,19 @@ public class FoodList extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                dialog.dismiss();
+               // dialog.dismiss();
 
-                //new Caregory
-                if (newFood != null)
+                //new Category
+                if ( newFood != null&& newFood.getUnit()!=null)
                 {
+                    dialog.dismiss();
                     foodList.push().setValue(newFood);
                     Snackbar.make(rootLayout,newFood.getName()+" was added",Snackbar.LENGTH_SHORT).show();
 
+                }
+                else if (newFood!=null && newFood.getUnit()==null)
+                {
+                    Toast.makeText(FoodList.this, "No unit added. Add a unit", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -183,8 +220,10 @@ public class FoodList extends AppCompatActivity {
                             newFood.setDescription(edtDescription.getText().toString());
                             newFood.setPrice(edtPrice.getText().toString());
                             newFood.setDiscount(edtDiscount.getText().toString());
+                            newFood.setMenuValue(edtFoodValue.getText().toString());
                             newFood.setMenuId(categoryId);
                             newFood.setImage(uri.toString());
+                            newFood.setUnit(arrUnit);
 
                         }
                     });
@@ -278,7 +317,7 @@ public class FoodList extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
-        if (item.getTitle().equals(Common.UPDATE))
+        if (item.getTitle().equals(Common.UPDATE_FOOD))
         {
             showUpdateFoodDialog(adapter.getRef(item.getOrder()).getKey(),adapter.getItem(item.getOrder()));
         }
@@ -286,7 +325,92 @@ public class FoodList extends AppCompatActivity {
         {
             deleteFood(adapter.getRef(item.getOrder()).getKey());
         }
+        else if (item.getTitle().equals(Common.UPDATE_UNIT))
+        {
+            showUpdateUnitDialog(adapter.getRef(item.getOrder()).getKey(),adapter.getItem(item.getOrder()));
+        }
         return super.onContextItemSelected(item);
+    }
+
+    private void showUpdateUnitDialog(String key, Food item) {
+        AlertDialog.Builder alertDialog=new AlertDialog.Builder(FoodList.this);
+        alertDialog.setTitle("Edit Unit");
+     //   alertDialog.setMessage("Enter details :");
+
+        LayoutInflater inflater=this.getLayoutInflater();
+        View edit_unit_layout=inflater.inflate(R.layout.update_unit_layout,null);
+
+        edtUnit=edit_unit_layout.findViewById(R.id.Unit_element);
+        edtUnitUpdate=edit_unit_layout.findViewById(R.id.Unit_element_update);
+        unitAdd=edit_unit_layout.findViewById(R.id.btnAddUnit);
+        unitEdit=edit_unit_layout.findViewById(R.id.btnEditUnit);
+        unitUpdate=edit_unit_layout.findViewById(R.id.btnUpdateUnit);
+        unitDelete=edit_unit_layout.findViewById(R.id.btnDeleteUnit);
+        spinnerUnit=edit_unit_layout.findViewById(R.id.unitSpinner);
+
+      //  List<String> list=item.getUnit();
+    //    ArrayAdapter<String> arrayAdapter=new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_dropdown_item,item.getUnit());
+     //   arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    //    spinnerUnit.setAdapter(arrayAdapter);
+        spinnerUnit.setItems(item.getUnit());
+        alertDialog.setView(edit_unit_layout);
+
+        unitAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!(edtUnit.getText().toString().isEmpty()))
+                {
+                    item.getUnit().add(edtUnit.getText().toString());
+                    Toast.makeText(FoodList.this, "Unit Added!!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        unitDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                item.getUnit().remove(spinnerUnit.getSelectedIndex());
+                Toast.makeText(FoodList.this, "Unit removed!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        unitEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edtUnitUpdate.setVisibility(View.VISIBLE);
+                unitUpdate.setVisibility(View.VISIBLE);
+            }
+        });
+
+        unitUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!(edtUnitUpdate.getText().toString().isEmpty()))
+                {
+                    item.getUnit().set(spinnerUnit.getSelectedIndex(), edtUnitUpdate.getText().toString());
+                    Toast.makeText(FoodList.this, "Unit Updated!!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        alertDialog.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                foodList.child(key).setValue(item);
+                Snackbar.make(rootLayout,item.getName()+" was updated",Snackbar.LENGTH_SHORT).show();
+            }
+        });
+
+        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        alertDialog.show();
+
     }
 
     private void deleteFood(String key) {
@@ -299,17 +423,19 @@ public class FoodList extends AppCompatActivity {
         alertDialog.setMessage("Enter details :");
 
         LayoutInflater inflater=this.getLayoutInflater();
-        View add_menu_layout=inflater.inflate(R.layout.add_new_food_layout,null);
+        View add_menu_layout=inflater.inflate(R.layout.update_food_layout,null);
 
         edtName = add_menu_layout.findViewById(R.id.TextName);
         edtDescription = add_menu_layout.findViewById(R.id.Description);
         edtPrice = add_menu_layout.findViewById(R.id.Price);
+        edtFoodValue=add_menu_layout.findViewById(R.id.FoodValue);
         edtDiscount = add_menu_layout.findViewById(R.id.Discount);
 
         //Set default value
         edtName.setText(item.getName());
         edtPrice.setText(item.getPrice());
         edtDiscount.setText(item.getDiscount());
+        edtFoodValue.setText(item.getMenuValue());
         edtDescription.setText(item.getDescription());
 
         btnSelect = add_menu_layout.findViewById(R.id.btnSelect);
@@ -343,6 +469,7 @@ public class FoodList extends AppCompatActivity {
                     item.setName(edtName.getText().toString());
                     item.setPrice(edtPrice.getText().toString());
                     item.setDiscount(edtDiscount.getText().toString());
+                    item.setMenuValue(edtFoodValue.getText().toString());
                     item.setDescription(edtDescription.getText().toString());
 
                     foodList.child(key).setValue(item);
@@ -353,9 +480,7 @@ public class FoodList extends AppCompatActivity {
         alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
                 dialog.dismiss();
-
             }
         });
         alertDialog.show();

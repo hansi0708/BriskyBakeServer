@@ -1,19 +1,52 @@
 package com.hv.briskybakeserver.Model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Food {
-    private String Name,Image,Description,Price,Discount,MenuId;
+    private String Name,Image,Description,Price,Discount,MenuId,MenuValue;
+    private List<String> Unit;
 
     public Food()
     {
 
     }
-    public Food(String name, String image, String description, String price, String discount, String menuId) {
+
+    public Food(String name, String image, String description, String price, String discount, String menuId, String menuValue) {
         Name = name;
         Image = image;
         Description = description;
         Price = price;
         Discount = discount;
         MenuId = menuId;
+        MenuValue = menuValue;
+    }
+
+    public Food(String name, String image, String description, String price, String discount, String menuId, String menuValue, List<String> unit) {
+        Name = name;
+        Image = image;
+        Description = description;
+        Price = price;
+        Discount = discount;
+        MenuId = menuId;
+        MenuValue = menuValue;
+        Unit = unit;
+    }
+
+    public List<String> getUnit() {
+        return Unit;
+    }
+
+    public void setUnit(List<String> unit) {
+        Unit = unit;
+    }
+
+    public String getMenuValue() {
+        return MenuValue;
+    }
+
+    public void setMenuValue(String menuValue) {
+        MenuValue = menuValue;
     }
 
     public String getName() {

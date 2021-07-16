@@ -24,6 +24,8 @@ import com.hv.briskybakeserver.Model.Request;
 import com.hv.briskybakeserver.ViewHolder.OrderViewHolder;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
+import java.util.Objects;
+
 public class OrderStatus extends AppCompatActivity {
 
     RecyclerView recyclerView;
@@ -38,7 +40,6 @@ public class OrderStatus extends AppCompatActivity {
     
     MapView mapview;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +48,6 @@ public class OrderStatus extends AppCompatActivity {
         //Firebase
         database=FirebaseDatabase.getInstance();
         requests=database.getReference("Requests");
-
-
 
         recyclerView=findViewById(R.id.listOrders);
         recyclerView.setHasFixedSize(true);
@@ -70,6 +69,7 @@ public class OrderStatus extends AppCompatActivity {
                 holder.txtOrderStatus.setText(Common.convertCodeToStatus(model.getStatus()));
                 holder.txtOrderAddress.setText(model.getAddress());
                 holder.txtOrderPhone.setText(model.getPhone());
+                holder.txtOrderDate.setText(Common.getDate(Long.parseLong(Objects.requireNonNull(adapter.getRef(position).getKey()))));
 
                 holder.btnEdit.setOnClickListener(new View.OnClickListener() {
                     @Override

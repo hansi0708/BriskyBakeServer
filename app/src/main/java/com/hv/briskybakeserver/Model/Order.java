@@ -1,42 +1,64 @@
 package com.hv.briskybakeserver.Model;
 
 public class Order {
-    private int ID;
+    private String UserPhone;
     private String ProductId;
     private String ProductName;
     private String Quantity;
     private String Price;
     private String Discount;
     private String Image;
+    private String OrderUnit;
+    private String OrderValue;
 
     public Order() {
     }
 
-    public Order(String productId, String productName, String quantity, String price, String discount,String image) {
+    public Order(String userPhone, String productId, String productName, String quantity, String price, String discount, String image, String orderUnit) {
+        UserPhone = userPhone;
         ProductId = productId;
         ProductName = productName;
         Quantity = quantity;
         Price = price;
         Discount = discount;
-        Image=image;
+        Image = image;
+        OrderUnit = orderUnit;
     }
 
-    public Order(int ID, String productId, String productName, String quantity, String price, String discount,String image) {
-        this.ID = ID;
+    public Order(String userPhone, String productId, String productName, String quantity, String price, String discount, String image, String orderUnit, String orderValue) {
+        UserPhone = userPhone;
         ProductId = productId;
         ProductName = productName;
         Quantity = quantity;
         Price = price;
         Discount = discount;
-        Image=image;
+        Image = image;
+        OrderUnit = orderUnit;
+        OrderValue = orderValue;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public String getOrderValue() {
+        return OrderValue;
     }
 
-    public int getID() {
-        return ID;
+    public void setOrderValue(String orderValue) {
+        OrderValue = orderValue;
+    }
+
+    public String getOrderUnit() {
+        return OrderUnit;
+    }
+
+    public void setOrderUnit(String orderUnit) {
+        OrderUnit = orderUnit;
+    }
+
+    public String getUserPhone() {
+        return UserPhone;
+    }
+
+    public void setUserPhone(String userPhone) {
+        UserPhone = userPhone;
     }
 
     public String getProductId() {
@@ -87,3 +109,4 @@ public class Order {
         Image = image;
     }
 }
+

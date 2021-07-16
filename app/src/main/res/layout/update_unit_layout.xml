@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    app:cardElevation="4dp">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+
+      <LinearLayout
+          android:weightSum="1"
+          android:layout_marginTop="10dp"
+          android:gravity="center"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+          <EditText
+              style="@style/Widget.AppCompat.Button.Borderless"
+              android:id="@+id/Unit_element"
+              android:layout_width="150dp"
+              android:layout_height="wrap_content"
+              android:layout_gravity="start"
+              android:ems="4"
+              android:hint="Unit"
+              android:fontFamily="@font/poppins_light"
+              android:inputType="number"
+              android:paddingLeft="5dp"
+              android:paddingRight="10dp"
+              android:textSize="13sp"
+              tools:ignore="Autofill,RtlSymmetry"
+              android:paddingStart="5dp"
+              android:paddingEnd="10dp"
+              />
+
+          <Button
+              android:id="@+id/btnAddUnit"
+              android:layout_width="wrap_content"
+              android:layout_weight="0"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="10dp"
+              android:textAllCaps="false"
+              android:background="@drawable/btncorners"
+              android:text="ADD"
+              android:fontFamily="@font/poppins_light"
+              android:textStyle="bold"
+              android:textSize="11sp"
+              app:backgroundTint="@color/buttoncolor" />
+
+
+
+      </LinearLayout>
+
+      <com.jaredrummler.materialspinner.MaterialSpinner
+          android:id="@+id/unitSpinner"
+          android:layout_width="match_parent"
+          android:layout_marginTop="10dp"
+          android:layout_height="50dp"
+          android:textSize="20sp"/>
+
+      <LinearLayout
+          android:weightSum="2"
+          android:layout_width="match_parent"
+          android:layout_marginTop="10dp"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:gravity="center"
+          android:orientation="horizontal">
+
+          <Button
+              android:id="@+id/btnEditUnit"
+              android:layout_width="wrap_content"
+              android:layout_weight="0"
+              android:layout_height="wrap_content"
+              android:textAllCaps="false"
+              android:background="@drawable/btncorners"
+              android:text="Edit"
+              android:fontFamily="@font/poppins_light"
+              android:textStyle="bold"
+              android:textSize="12sp"
+              app:backgroundTint="@color/buttoncolor" />
+
+          <Button
+              android:id="@+id/btnDeleteUnit"
+              android:layout_width="wrap_content"
+              android:layout_weight="0"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="10dp"
+              android:textAllCaps="false"
+              android:background="@drawable/btncorners"
+              android:text="Delete"
+              android:fontFamily="@font/poppins_light"
+              android:textStyle="bold"
+              android:textSize="12sp"
+              app:backgroundTint="@color/buttoncolor" />
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:weightSum="1"
+          android:layout_marginTop="10dp"
+          android:gravity="center"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+          <EditText
+              style="@style/Widget.AppCompat.Button.Borderless"
+              android:id="@+id/Unit_element_update"
+              android:layout_width="150dp"
+              android:layout_height="wrap_content"
+              android:layout_gravity="start"
+              android:ems="4"
+              android:hint="Unit"
+              android:fontFamily="@font/poppins_light"
+              android:inputType="number"
+              android:paddingLeft="5dp"
+              android:paddingRight="10dp"
+              android:textSize="13sp"
+              tools:ignore="Autofill,RtlSymmetry"
+              android:paddingStart="5dp"
+              android:paddingEnd="10dp"
+              android:visibility="gone"
+              />
+
+          <Button
+              android:id="@+id/btnUpdateUnit"
+              android:layout_width="wrap_content"
+              android:layout_weight="0"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="10dp"
+              android:textAllCaps="false"
+              android:background="@drawable/btncorners"
+              android:text="UPDATE"
+              android:fontFamily="@font/poppins_light"
+              android:textStyle="bold"
+              android:textSize="11sp"
+              android:visibility="gone"
+              app:backgroundTint="@color/buttoncolor" />
+
+
+
+      </LinearLayout>
+
+  </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

@@ -39,6 +39,18 @@
                     android:layout_height="wrap_content"/>
 
                 <TextView
+                    android:id="@+id/order_date"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical|start"
+                    android:textAllCaps="true"
+                    android:fontFamily="@font/poppins_light"
+                    android:textStyle="bold"
+                    android:padding="2dp"
+                    android:text="Order Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
                     android:id="@+id/order_status"
                     android:layout_marginLeft="10dp"
                     android:layout_gravity="center_vertical|start"

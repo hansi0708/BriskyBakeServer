@@ -15,7 +15,7 @@ import com.hv.briskybakeserver.R;
 public class OrderViewHolder extends RecyclerView.ViewHolder
         {
 
-        public TextView txtOrderId, txtOrderStatus, txtOrderPhone, txtOrderAddress;
+        public TextView txtOrderId, txtOrderStatus, txtOrderPhone, txtOrderAddress,txtOrderDate;
         
         public Button btnEdit,btnRemove,btnDetail,btnDirection,map;
 
@@ -27,6 +27,7 @@ public class OrderViewHolder extends RecyclerView.ViewHolder
             txtOrderStatus=itemView.findViewById(R.id.order_status);
             txtOrderPhone=itemView.findViewById(R.id.order_phone);
             txtOrderAddress=itemView.findViewById(R.id.order_address);
+            txtOrderDate=itemView.findViewById(R.id.order_date);
 
             btnEdit=itemView.findViewById(R.id.edit);
             btnRemove=itemView.findViewById(R.id.remove);
