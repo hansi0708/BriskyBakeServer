@@ -10,4 +10,5 @@
 
     <color name="backgroundcolor">#FDE3DC</color>
     <color name="buttoncolor">#374C74</color>
+    <color name="discount_color">#00B526</color>
 </resources>

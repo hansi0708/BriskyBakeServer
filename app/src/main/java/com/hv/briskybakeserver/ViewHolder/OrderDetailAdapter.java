@@ -21,7 +21,7 @@ import java.util.List;
 
 class MyViewHolder extends RecyclerView.ViewHolder{
 
-    public TextView product_name,quantity,price,discount;
+    public TextView product_name,quantity,price,discount,unit;
 public Button map;
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -29,6 +29,7 @@ public Button map;
         quantity=itemView.findViewById(R.id.product_quantity);
         price=itemView.findViewById(R.id.product_price);
         discount=itemView.findViewById(R.id.product_discount);
+        unit=itemView.findViewById(R.id.product_unit);
 
     }
 }
@@ -56,6 +57,7 @@ public class OrderDetailAdapter extends RecyclerView.Adapter<MyViewHolder>{
         holder.quantity.setText(String.format("Quantity : %s",order.getQuantity()));
         holder.price.setText(String.format("Price : %s",order.getPrice()));
         holder.discount.setText(String.format("Discount : %s",order.getDiscount()));
+        holder.unit.setText(String.format("%s (%s)",order.getOrderUnit(),order.getOrderValue()));
 
     }
 

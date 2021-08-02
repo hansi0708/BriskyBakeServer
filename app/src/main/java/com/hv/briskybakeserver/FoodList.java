@@ -113,7 +113,7 @@ public class FoodList extends AppCompatActivity {
 
     private void showAddFoodDialog() {
         AlertDialog.Builder alertDialog=new AlertDialog.Builder(FoodList.this);
-        alertDialog.setTitle("Add Food Item");
+        alertDialog.setTitle("Add Item");
         alertDialog.setMessage("Enter details :");
 
         LayoutInflater inflater=this.getLayoutInflater();
@@ -281,9 +281,9 @@ public class FoodList extends AppCompatActivity {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
                         //Start new Activity
-         //               Intent foodDetail=new Intent(FoodList.this,FoodDetail.class);
-        //                foodDetail.putExtra("FoodId",adapter.getRef(position).getKey()); //Send food id to new activity
-        //                startActivity(foodDetail);
+                        Intent foodDetail=new Intent(FoodList.this,FoodDetails.class);
+                       foodDetail.putExtra("FoodId",adapter.getRef(position).getKey()); //Send food id to new activity
+                        startActivity(foodDetail);
                     }
                 });
             }

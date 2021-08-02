@@ -13,6 +13,12 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+
         <EditText
             style="@style/Widget.AppCompat.Button.Borderless"
             android:id="@+id/TextName"
@@ -28,6 +34,14 @@
             android:textSize="13sp"
             tools:ignore="Autofill,RtlSymmetry"
             android:paddingStart="5dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
 
         <EditText
             style="@style/Widget.AppCompat.Button.Borderless"
@@ -45,6 +59,14 @@
             tools:ignore="Autofill,RtlSymmetry"
             android:paddingStart="5dp" />
 
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+
         <EditText
             style="@style/Widget.AppCompat.Button.Borderless"
             android:id="@+id/Price"
@@ -61,6 +83,14 @@
             tools:ignore="Autofill,RtlSymmetry"
             android:paddingStart="5dp" />
 
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+
         <EditText
             style="@style/Widget.AppCompat.Button.Borderless"
             android:id="@+id/Discount"
@@ -76,6 +106,14 @@
             android:textSize="13sp"
             tools:ignore="Autofill,RtlSymmetry"
             android:paddingStart="5dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
 
         <EditText
             style="@style/Widget.AppCompat.Button.Borderless"
@@ -96,6 +134,8 @@
             android:paddingEnd="10dp"
             />
 
+        </com.google.android.material.textfield.TextInputLayout>
+
         <LinearLayout
             android:weightSum="1"
             android:layout_marginTop="10dp"
@@ -103,6 +143,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                >
 
             <EditText
                 style="@style/Widget.AppCompat.Button.Borderless"
@@ -121,6 +167,8 @@
                 android:paddingStart="5dp"
                 android:paddingEnd="10dp"
                 />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btnAdd"

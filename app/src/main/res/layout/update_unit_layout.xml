@@ -21,23 +21,31 @@
           android:layout_height="wrap_content"
           android:orientation="horizontal">
 
-          <EditText
-              style="@style/Widget.AppCompat.Button.Borderless"
-              android:id="@+id/Unit_element"
-              android:layout_width="150dp"
+          <com.google.android.material.textfield.TextInputLayout
+              android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_gravity="start"
-              android:ems="4"
-              android:hint="Unit"
-              android:fontFamily="@font/poppins_light"
-              android:inputType="number"
-              android:paddingLeft="5dp"
-              android:paddingRight="10dp"
-              android:textSize="13sp"
-              tools:ignore="Autofill,RtlSymmetry"
-              android:paddingStart="5dp"
-              android:paddingEnd="10dp"
-              />
+              style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+              >
+
+              <EditText
+                  style="@style/Widget.AppCompat.Button.Borderless"
+                  android:id="@+id/Unit_element"
+                  android:layout_width="150dp"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="start"
+                  android:ems="4"
+                  android:hint="Unit"
+                  android:fontFamily="@font/poppins_light"
+                  android:inputType="number"
+                  android:paddingLeft="5dp"
+                  android:paddingRight="10dp"
+                  android:textSize="13sp"
+                  tools:ignore="Autofill,RtlSymmetry"
+                  android:paddingStart="5dp"
+                  android:paddingEnd="10dp"
+                  />
+
+          </com.google.android.material.textfield.TextInputLayout>
 
           <Button
               android:id="@+id/btnAddUnit"
@@ -62,7 +70,10 @@
           android:layout_width="match_parent"
           android:layout_marginTop="10dp"
           android:layout_height="50dp"
-          android:textSize="20sp"/>
+          android:hint="Item Unit"
+          android:textAlignment="center"
+          android:textSize="13sp"
+          android:gravity="center_horizontal" />
 
       <LinearLayout
           android:weightSum="2"
@@ -110,24 +121,33 @@
           android:layout_height="wrap_content"
           android:orientation="horizontal">
 
-          <EditText
-              style="@style/Widget.AppCompat.Button.Borderless"
-              android:id="@+id/Unit_element_update"
-              android:layout_width="150dp"
+          <com.google.android.material.textfield.TextInputLayout
+              android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_gravity="start"
-              android:ems="4"
-              android:hint="Unit"
-              android:fontFamily="@font/poppins_light"
-              android:inputType="number"
-              android:paddingLeft="5dp"
-              android:paddingRight="10dp"
-              android:textSize="13sp"
-              tools:ignore="Autofill,RtlSymmetry"
-              android:paddingStart="5dp"
-              android:paddingEnd="10dp"
-              android:visibility="gone"
-              />
+              style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+              >
+
+              <EditText
+                  style="@style/Widget.AppCompat.Button.Borderless"
+                  android:id="@+id/Unit_element_update"
+                  android:layout_width="150dp"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="start"
+                  android:ems="4"
+                  android:hint="Unit"
+                  android:fontFamily="@font/poppins_light"
+                  android:inputType="number"
+                  android:paddingLeft="5dp"
+                  android:paddingRight="10dp"
+                  android:textSize="13sp"
+                  tools:ignore="Autofill,RtlSymmetry"
+                  android:paddingStart="5dp"
+                  android:paddingEnd="10dp"
+                  android:visibility="gone"
+
+                  />
+
+          </com.google.android.material.textfield.TextInputLayout>
 
           <Button
               android:id="@+id/btnUpdateUnit"
@@ -141,12 +161,14 @@
               android:fontFamily="@font/poppins_light"
               android:textStyle="bold"
               android:textSize="11sp"
+              app:backgroundTint="@color/buttoncolor"
               android:visibility="gone"
-              app:backgroundTint="@color/buttoncolor" />
+              />
 
 
 
       </LinearLayout>
+
 
   </LinearLayout>
 

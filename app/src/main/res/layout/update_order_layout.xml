@@ -12,6 +12,9 @@
        android:id="@+id/statusSpinner"
        android:layout_width="match_parent"
        android:layout_height="50dp"
-       android:textSize="20sp"/>
+       android:textSize="20sp"
+       android:hint="Status"
+       android:textAlignment="center"
+       android:gravity="center_horizontal" />
 
 </androidx.cardview.widget.CardView>

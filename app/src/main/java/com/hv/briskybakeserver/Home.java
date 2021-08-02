@@ -154,11 +154,20 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         alertDialog.setPositiveButton("Save", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-                if (newCategory != null)
+
+                if (newCategory != null && !(edtName.getText().toString().isEmpty()))
                 {
+                    dialog.dismiss();
                     category.push().setValue(newCategory);
                     Snackbar.make(drawer,"New category "+newCategory.getName()+" was added",Snackbar.LENGTH_SHORT).show();
+                }
+                else if (!(edtName.getText().toString().isEmpty()))
+                {
+                    Toast.makeText(Home.this, "Please enter name of category", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(Home.this, "No entry given", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -266,13 +275,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
                     }
                 });
-         //         final Category clickItem=model;
-           //     holder.setItemClickListener(new ItemClickListener() {
-                //    @Override
-               //     public void onClick(View view, int position, boolean isLongClick) {
-//
-            //        }
-             //   });
+
             }
 
             @NonNull
@@ -376,18 +379,22 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         });
 
         alertDialog.setView(add_menu_layout);
-        alertDialog.setIcon(R.drawable.ic_baseline_shopping_cart_24);
 
         //set Button
         alertDialog.setPositiveButton("Update", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                dialog.dismiss();
-
                 //Update info
-                item.setName(edtName.getText().toString());
-                category.child(key).setValue(item);
+                if (!(edtName.getText().toString().isEmpty())) {
+                    dialog.dismiss();
+                    item.setName(edtName.getText().toString());
+                    category.child(key).setValue(item);
+                }
+                else
+                {
+                    Toast.makeText(Home.this, "Please enter name of category", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

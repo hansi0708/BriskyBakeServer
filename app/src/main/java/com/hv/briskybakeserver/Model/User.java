@@ -9,6 +9,13 @@ public class User {
         Password = password;
     }
 
+    public User(String name, String password, String phone, String email) {
+        Name = name;
+        Password = password;
+        Phone = phone;
+        Email = email;
+    }
+
     public User() {
     }
 

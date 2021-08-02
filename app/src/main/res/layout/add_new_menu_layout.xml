@@ -13,56 +13,64 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+
         <EditText
             style="@style/Widget.AppCompat.Button.Borderless"
             android:id="@+id/TextName"
-            android:layout_width="296dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:ems="10"
+            android:ems="4"
             android:hint="Name"
             android:fontFamily="@font/poppins_light"
             android:inputType="textPersonName"
             android:paddingStart="5dp"
             android:paddingLeft="5dp"
-            android:textSize="20sp"
+            android:textSize="13sp"
             tools:ignore="Autofill,RtlSymmetry" />
 
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:weightSum="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnSelect"
-                android:layout_width="20dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:layout_weight="1"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/btncorners"
                 android:text="SELECT IMAGE"
                 android:fontFamily="@font/poppins_light"
                 android:textStyle="bold"
                 android:textAllCaps="false"
+                android:textSize="12sp"
                 app:backgroundTint="@color/buttoncolor" />
 
             <Button
                 android:id="@+id/btnUpload"
-                android:layout_width="41dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:layout_weight="1"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/btncorners"
                 android:text="UPLOAD"
                 android:fontFamily="@font/poppins_light"
                 android:textStyle="bold"
                 android:textAllCaps="false"
+                android:textSize="12sp"
                 app:backgroundTint="@color/buttoncolor" />
 
         </LinearLayout>
